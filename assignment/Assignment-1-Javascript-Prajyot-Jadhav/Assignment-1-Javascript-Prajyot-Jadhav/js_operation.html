@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Javacript operations</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header class="text-center bg-primary py-2">
+      <h1 class="text-white">Javascript Operations</h1>
+    </header>
+    <div class="container">
+      <div class="row">
+        <!--operation 1: first name and last name capitalized-->
+        <div class="col-md-12 p-3 my-2 bg-white text-black border border-2">
+          <h3 class="text-center">Operation 1</h3>
+          <div class="form-group">
+            <label for="first_Name">First Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="first_Name"
+              onKeyup="this.value = this.value.replace(/[^a-zA-Z]/g,' ')"
+            />
+            <p class="error" id="input_error"></p>
+          </div>
+          <div class="form-group">
+            <label for="last_Name">Last Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="last_Name"
+              onKeyup="this.value = this.value.replace(/[^a-zA-Z]/g,' ')"
+            />
+          </div>
+          <button class="btn btn-primary mt-3" onclick="name_Format()">
+            Submit
+          </button>
+          <p id="display" class="mt-3"></p>
+        </div>
+        <!--operation 2: word to replace and the new word-->
+        <div class="col-md-12 p-3 my-2 text-black border border-2">
+          <h3 class="text-center">Operation 2</h3>
+          <div class="form-group">
+            <label for="input_String">Enter the String: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="input_String"
+              onKeyup="this.value = this.value.replace(/[^a-zA-Z]/g,' ')"
+            />
+          </div>
+          <div class="form-group">
+            <label for="replace_Word">Word to Replace:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="replace_Word"
+              onKeyup="this.value = this.value.replace(/[^a-zA-Z]/g,' ')"
+            />
+          </div>
+          <div class="form-group">
+            <label for="new_Word">New Word:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="new_Word"
+              onKeyup="this.value = this.value.replace(/[^a-zA-Z]/g,' ')"
+            />
+          </div>
+          <button class="btn btn-primary mt-2" onclick="replace_Word()">
+            Submit
+          </button>
+          <p id="final_String" class="mt-3"></p>
+        </div>
+        <!--operation 3: word with reversed characters-->
+        <div class="col-md-12 p-3 my-2 text-black border border-2">
+          <h3 class="text-center">Operation 3</h3>
+          <div class="form-group">
+            <label for="input_Word">Input Word: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="input_Word"
+              onKeyup="this.value = this.value.replace(/[^a-zA-Z]/g,' ')"
+            />
+          </div>
+          <button class="btn btn-primary mt-2" onclick="reverse_Word()">
+            Submit
+          </button>
+          <p id="reversed_Word" class="mt-3"></p>
+        </div>
+        <!--operation 4: rounding off the number and display-->
+        <div class="col-md-12 p-3 my-2 text-black border border-2">
+          <h3 class="text-center">Operation 4</h3>
+          <div class="form-group">
+            <label for="input_Number">Enter the Number:</label>
+            <input type="number" class="form-control" id="input_Number" />
+          </div>
+          <div class="form-group">
+            <label for="dec_Digits">Enter the required decimal digits</label>
+            <input type="number" class="form-control" id="dec_Digits" />
+          </div>
+          <button class="btn btn-primary mt-2" onclick="round_Num()">
+            Submit
+          </button>
+          <p id="rounded_Num" class="mt-3"></p>
+        </div>
+
+        <!--Operation 5: display current day and time-->
+        <div class="col-md-12 p-3 my-2 text-black border border-2">
+          <h3 class="text-center">Current Day and Time</h3>
+          <p id="displayDate_Time" class="text-center"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer class="bg-primary text-center text-white py-4 mt-3">
+    <script src="assets/js/operation.js"></script>
+    <p>© Copyright 2024 All rights reserved.</p>
+  </footer>
+</html>

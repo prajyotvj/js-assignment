@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Assignment-3-JQ</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="assets/css/stylesheet.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <header id="page-header">
+        <h1 id="page-heading">Assignment-3-JQ</h1>
+      </header>
+
+      <div class="container">
+        <div class="main-content">
+          <h1 id="content-heading">Novell Services Login</h1>
+          <form id="frm" method="post">
+            <!--input field-->
+            <label class="lbl_text" for="username">Username:</label>
+            <input type="text" id="username" name="username" />
+
+            <br /><br />
+            <label class="lbl_text" for="password">Password: </label>
+            <input type="password" id="password" name="password" />
+
+            <br /><br />
+            <label class="lbl_text" for="employment">City of Employment:</label>
+            <input type="text" id="employment" name="employment" />
+
+            <br /><br />
+
+            <!--drop down for the server selection-->
+            <label for="webServer">Web Server:</label>
+
+            <select class="px-1 w-50" id="webServer" name="webServer">
+              <option value="">--Choose a server--</option>
+              <option value="server1">Server1</option>
+              <option value="server2">Server2</option>
+            </select>
+            <div class="drop_err"></div>
+
+            <br />
+            <!--Radio input section -->
+            <div id="role_div">
+              <div class="aside1">Please specify <br />your role</div>
+              <div class="aside2">
+                <div class="form-check">
+                  <input
+                    class="form-check-input px-1"
+                    type="radio"
+                    id="Admin"
+                    name="radioButton"
+                    class="rad"
+                    value="Admin"
+                  />
+                  <label class="form-check-label" for="Admin">Admin</label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input px-1"
+                    type="radio"
+                    id="Engineer"
+                    name="radioButton"
+                    class="rad"
+                    value="Engineer"
+                  />
+                  <label class="form-check-label" for="Engineer"
+                    >Engineer</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input px-1"
+                    type="radio"
+                    id="Manager"
+                    name="radioButton"
+                    class="rad"
+                    value="Manager"
+                  />
+                  <label class="form-check-label" for="Manager">Manager</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input px-1"
+                    type="radio"
+                    id="Guest"
+                    name="radioButton"
+                    class="rad"
+                    value="Guest"
+                  />
+                  <label class="form-check-label" for="Guest">Guest</label>
+                </div>
+              </div>
+            </div>
+            <div class="radio_err"></div>
+            <br /><br />
+
+            <!--Checkbox Section-->
+            <div id="chk_section">
+              <div class="aside1">
+                Single sign-on <br />
+                to the following
+              </div>
+              <div class="aside2">
+                <div class="form-check">
+                  <input
+                    class="form-check-input px-1"
+                    type="checkbox"
+                    id="mailcheckbox"
+                    name="checkboxButton"
+                    value="Mail"
+                  />
+
+                  <label class="form-check-label" for="mailcheckbox"
+                    >Mail</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input px-1"
+                    type="checkbox"
+                    id="payrollcheckbox"
+                    name="checkboxButton"
+                    value="Payroll"
+                  />
+                  <label class="form-check-label" for="payrollcheckbox"
+                    >Payroll</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input px-1"
+                    type="checkbox"
+                    id="selfServicecheckbox"
+                    name="checkboxButton"
+                    value="Self-service"
+                  />
+                  <label class="form-check-label" for="selfServicecheckbox"
+                    >Self-service</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="check_err"></div>
+
+            <div class="container-btn">
+              <button
+                id="submit_btn"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Submit
+              </button>
+              &nbsp;
+              <button id="reset_btn">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="frmModal"
+      tabindex="-1"
+      aria-labelledby="frmModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="frmModalLabel">Modal title</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <tr>
+                <th scope="col">Username</th>
+                <td scope="col" id="disp_username"></td>
+              </tr>
+
+              <tr>
+                <th scope="col">City of Employment</th>
+                <td scope="col" id="disp_city"></td>
+              </tr>
+              <tr>
+                <th scope="col">Selected Server</th>
+                <td scope="col" id="disp_server"></td>
+              </tr>
+              <tr>
+                <th scope="col">Role</th>
+                <td scope="col" id="disp_role"></td>
+              </tr>
+              <tr>
+                <th scope="col">sign-on Selected</th>
+                <td scope="col" id="disp_sign"></td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <footer>
+    <p id="footer-p">&copy;Assignment-3-JQ 2024</p>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/jquery/jquery-3.7.1.min.js "></script>
+    <script src="assets/js/jquery/jquery.validate.min.js "></script>
+    <script src="assets/js/validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+  </footer>
+</html>

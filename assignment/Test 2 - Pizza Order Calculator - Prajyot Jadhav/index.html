@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <title>Pizza Center</title>
+  </head>
+
+  <body>
+    <header class="bg-primary p-2">
+      <h1 class="text-white text-center">Final-Test Assignment JavaScript</h1>
+    </header>
+    <div class="page-wrapper">
+      <div class="container mt-5">
+        <div class="row bg-white">
+          <div
+            class="col-md-8 offset-md-2 border border-2 border-primary rounded"
+          >
+            <h2 class="text-center text-primary mt-3">Pizza Center</h2>
+            <form id="pizzafrm">
+              <div class="form-group mt-3">
+                <!--drop down to select the catogery Veg or Non Veg-->
+                <label class="text-primary" for="select_catogery"
+                  >Select Category</label
+                >
+                <select
+                  class="form-control border-primary mt-1"
+                  id="select_catogery"
+                  name="select_catogery"
+                  onchange="Display_pizzas()"
+                >
+                  <option value="" disabled selected>
+                    -- select the category --
+                  </option>
+                  <option value="veg">Veg</option>
+                  <option value="nonveg">Non Veg</option>
+                </select>
+              </div>
+
+              <!-- drop down for selecting the pizza -->
+              <div class="form-group mt-3">
+                <label class="text-primary" for="select_pizza"
+                  >Select Pizza</label
+                >
+                <select
+                  class="form-control border-primary mt-1"
+                  id="select_pizza"
+                  name="select_pizza"
+                ></select>
+              </div>
+
+              <!-- div to display the image of the selected pizza -->
+              <div class="form-group mt-3">
+                <img
+                  id="pizza_image"
+                  src="img"
+                  alt="Pizza Image"
+                  width="200px"
+                  height="200px"
+                />
+              </div>
+
+              <!-- display the price of the selected pizza-->
+              <div class="form-group mt-3">
+                <label class="text-primary" for="pizza_price"
+                  >Pizza Price</label
+                >
+                <input
+                  type="text"
+                  class="form-control border-primary mt-1"
+                  id="pizza_price"
+                  readonly
+                />
+              </div>
+
+              <!-- To enter the quantity of the selected pizza -->
+              <div class="form-group mt-3">
+                <label class="text-primary" for="pizza_quantity"
+                  >Quantity</label
+                >
+                <input
+                  type="number"
+                  class="form-control border-primary mt-1"
+                  id="pizza_quantity"
+                  name="pizza_quantity"
+                  placeholder="--enter the quantity--"
+                  value=""
+                  min="1"
+                />
+              </div>
+
+              <!--side order section-->
+              <h5 class="text-primary mt-3">Side Order</h5>
+              <div id="sideorderFrm">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="side_order"
+                    value="Breads"
+                    id="breads_checkbox"
+                  />
+                  <label
+                    class="form-check-label text-primary"
+                    for="breads_checkbox"
+                    >Breads</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="side_order"
+                    value="Dips"
+                    id="dips_checkbox"
+                  />
+                  <label
+                    class="form-check-label text-primary"
+                    for="dips_checkbox"
+                    >Dips</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="side_order"
+                    value="Dessert"
+                    id="dessert_checkbox"
+                  />
+                  <label
+                    class="form-check-label text-primary"
+                    for="dessert_checkbox"
+                    >Dessert</label
+                  >
+                </div>
+                <!-- button to show the price of the checked side order items-->
+                <div class="mt-3">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="display_Selection()"
+                    id="show_price"
+                  >
+                    Show Price
+                  </button>
+                </div>
+              </div>
+              <div class="mt-4" id="result"></div>
+
+              <input type="number" value="" id="side_order_total" hidden />
+
+              <!-- Button to display the total order amount-->
+              <button
+                type="button"
+                id="calculate_button"
+                class="btn btn-primary mt-2"
+                onclick="calculate_Total()"
+              >
+                Calculate Bill
+              </button>
+              <!--to display the amt-->
+              <div class="form-group">
+                <h4 id="totalAmount" class="text-success text-center"></h4>
+              </div>
+              <p
+                id="thankYou"
+                class="text-center text-success"
+                class="mt-3"
+              ></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--footer section-->
+    <footer class="mt-5 bg-primary">
+      <p class="py-3 text-white text-center mb-0">
+        &copy; Final Test Assignment Prajyot-Jadhav
+      </p>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script src="assets/js/jquery/jquery-3.7.1.min.js"></script>
+      <script src="assets/js/jquery/jquery.validate.min.js"></script>
+      <script src="assets/js/final-test.js"></script>
+    </footer>
+  </body>
+</html>

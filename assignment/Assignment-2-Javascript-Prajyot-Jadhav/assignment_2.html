@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Assignment-2-Javascript</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  </head>
+
+  <body>
+    <header class="text-center bg-secondary py-2 text-white">
+      <h1>Assignment-2-Javascript</h1>
+    </header>
+    <div class="container">
+      <div class="row">
+        <!--Operation 1: display the date in selected format-->
+        <div class="col-md-12 p-3 my-2 bg-white text-black border border-2">
+          <h5>Choose the Date Format</h5>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="date_format"
+              id="mm-dd-yyyy"
+              value="mm-dd-yyyy"
+              onClick="current_Date()"
+            />
+            <label class="form-check-label" for="mm-dd-yyyy">mm-dd-yyyy</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="date_format"
+              id="mm/dd/yyyy"
+              value="mm/dd/yyyy"
+              onClick="current_Date()"
+            />
+            <label class="form-check-label" for="mm/dd/yyyy">mm/dd/yyyy</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="date_format"
+              id="dd-mm-yyyy"
+              value="dd-mm-yyyy"
+              onClick="current_Date()"
+            />
+            <label class="form-check-label" for="dd-mm-yyyy">dd-mm-yyyy</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="date_format"
+              id="dd/mm/yyyy"
+              value="dd/mm/yyyy"
+              onClick="current_Date()"
+            />
+            <label class="form-check-label" for="dd/mm/yyyy">dd/mm/yyyy</label>
+          </div>
+          <br />
+          <p id="sel_format" style="color: blue"></p>
+        </div>
+        <!--Operation 2: select the country and city and then display the selected city-->
+        <div class="col-md-12 p-3 my-2 bg-white text-black border border-2">
+          <div class="col-md-4 py-2">
+            <label for="optional" class="form-label">Choose country:</label>
+            <select
+              class="form-control"
+              id="optional"
+              name="optional"
+              onChange="show_section(this.value)"
+            >
+              <option value="india">India</option>
+              <option value="usa">Usa</option>
+              <option value="australia">Australia</option>
+            </select>
+          </div>
+          <div class="row flex-column">
+            <div class="col-md-4 india_cities">
+              <label for="india_cities" class="form-label" id="india_cities_Lbl"
+                >Select the City:</label
+              >
+              <select
+                class="form-control"
+                id="india_cities"
+                name="india_cities"
+                onChange="selected_city(this.value)"
+              >
+                <option value="Mumbai">Mumbai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Pune">Pune</option>
+              </select>
+            </div>
+            <div class="col-md-4 usa_cities">
+              <label for="usa_cities" class="form-label" id="usa_cities_Lbl"
+                >Select the City:</label
+              >
+              <select
+                class="form-control"
+                id="usa_cities"
+                name="usa_cities"
+                onChange="selected_city(this.value)"
+              >
+                <option value="NewYork">Newyork</option>
+                <option value="LasVegas">LasVegas</option>
+                <option value="Phoenix">Phoenix</option>
+              </select>
+            </div>
+            <div class="col-md-4 aus_cities">
+              <label for="aus_cities" class="form-label" id="aus_cities_Lbl"
+                >Select the City:</label
+              >
+              <select
+                class="form-control"
+                id="aus_cities"
+                name="aus_cities"
+                onChange="selected_city(this.value)"
+              >
+                <option value="Sydney">Sydney</option>
+                <option value="Adelaide">Adelaide</option>
+                <option value="Melbourne">Melbourne</option>
+              </select>
+            </div>
+            <p id="display_city" class="py-2" style="color: blue"></p>
+          </div>
+        </div>
+        <!--Operation 3: display the count of color selected-->
+        <div class="col-md-12 p-3 my-2 bg-white text-black border border-2">
+          <h5>Select the colors</h5>
+          <br />
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="color_red"
+              name="color"
+              value="Red"
+              onClick="color_count()"
+            />
+            <label class="form-check-label" for="color_red">Red</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="color_blue"
+              name="color"
+              value="Blue"
+              onClick="color_count()"
+            />
+            <label class="form-check-label" for="color_blue">Blue</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="color_green"
+              name="color"
+              value="Green"
+              onClick="color_count()"
+            />
+            <label class="form-check-label" for="color_green">Green</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="color_yellow"
+              name="color"
+              value="Yellow"
+              onClick="color_count()"
+            />
+            <label class="form-check-label" for="color_yellow">Yellow</label>
+          </div>
+          <p id="display_count" style="color: blue"></p>
+        </div>
+        <!--Operation 4: delete the state and its capital-->
+        <div class="col-md-12 p-3 my-2 bg-white text-black border border-2">
+          <table class="table" id="state_and_capital">
+            <thead>
+              <tr>
+                <th scope="col">States</th>
+                <th scope="col">Capital</th>
+                <th scope="col">button</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="row_mh">
+                <td>Maharashtra</td>
+                <td>Mumbai</td>
+                <td>
+                  <button
+                    class="btn border border-2"
+                    onclick="delete_row(row_mh)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              <tr id="row_gj">
+                <td>Gujarat</td>
+                <td>Gandhinagar</td>
+                <td>
+                  <button
+                    class="btn border border-2"
+                    onclick="delete_row(row_gj)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              <tr id="row_kn">
+                <td>Karnataka</td>
+                <td>Bangalore</td>
+                <td>
+                  <button
+                    class="btn border border-2"
+                    onclick="delete_row(row_kn)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              <tr id="row_mp">
+                <td>Madhya Pradesh</td>
+                <td>Bhopal</td>
+                <td>
+                  <button
+                    class="btn border border-2"
+                    onclick="delete_row(row_mp)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              <tr id="row_tn">
+                <td>Tamil Nadu</td>
+                <td>Chennai</td>
+                <td>
+                  <button
+                    class="btn border border-2"
+                    onclick="delete_row(row_tn)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer class="bg-secondary mt-3 pt-4 pb-3 text-center">
+    <p class="text-white">&copy; 2024 Assignment-2-Javascript</p>
+    <!-- Javascript -->
+    <script src="assets/js/assignment_2.js"></script>
+  </footer>
+</html>

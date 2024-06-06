@@ -1,0 +1,15 @@
+.page-wrapper {
+  min-height: calc(100vh - 80px);
+}
+
+#grand_total {
+  color: #10b610;
+  font-size: 20px;
+}
+
+footer {
+  background-color: #79848c;
+  font-size: 18px;
+  color: #fff;
+  min-height: 80px;
+}

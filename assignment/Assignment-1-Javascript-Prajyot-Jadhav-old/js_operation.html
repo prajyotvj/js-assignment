@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+    <title>Javacript operations</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="text-center bg-primary py-2">
+      <h1 class="text-white">Javascript Operations</h1>
+    </header>
+    <div class="container">
+      <div class="row">
+        <!--operation 1-->
+        <div class="col-md-12 p-3 my-2 bg-white text-black border border-2">
+          <h3 class="text-center">Operation 1</h3>
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" id="firstName" />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="form-control" id="lastName" />
+          </div>
+          <button class="btn btn-primary mt-3" onclick="formatName()">
+          Submit
+          </button>
+          <p id="display" class="mt-3"></p>
+        </div>
+        <!--operation 2-->
+        <div class="col-md-12 p-3 my-2 text-black border border-2">
+          <h3 class="text-center">Operation 2</h3>
+          <div class="form-group">
+            <label for="inputString">Enter the String: </label>
+            <input type="text" class="form-control" id="inputString" />
+          </div>
+          <div class="form-group">
+            <label for="replaceWord">Word to Replace:</label>
+            <input type="text" class="form-control" id="replaceWord" />
+          </div>
+          <div class="form-group">
+            <label for="newWord">New Word:</label>
+            <input type="text" class="form-control" id="newWord" />
+          </div>
+          <button class="btn btn-primary mt-2" onclick="replaceWord()">
+          Submit
+          </button>
+          <p id="finalString" class="mt-3"></p>
+        </div>
+        <!--operation 3-->
+        <div class="col-md-12 p-3 my-2 text-black border border-2">
+          <h3 class="text-center">Operation 3</h3>
+          <div class="form-group">
+            <label for="inputWord">Input Word: </label>
+            <input type="text" class="form-control" id="inputWord" />
+          </div>
+          <button class="btn btn-primary mt-2" onclick="reverseWord()">
+          Submit
+          </button>
+          <p id="reversedWord" class="mt-3"></p>
+        </div>
+        <!--operation 4-->
+        <div class="col-md-12 p-3 my-2 text-black border border-2">
+          <h3 class="text-center">Operation 4</h3>
+          <div class="form-group">
+            <label for="inputNumber">Enter the Number:</label>
+            <input type="number" class="form-control" id="inputNumber" />
+          </div>
+          <div class="form-group">
+            <label for="decimalDigits">Enter the required decimal digits</label>
+            <input
+              type="number"
+              class="form-control"
+              id="decimalDigits"
+              min="0"
+              />
+          </div>
+          <button class="btn btn-primary mt-2" onclick="roundNumber()">
+          Submit
+          </button>
+          <p id="roundedNum" class="mt-3"></p>
+        </div>
+        <div class="col-md-12 p-3 my-2 text-black border border-2">
+          <h3 class="text-center">Current Day and Time</h3>
+          <p id="currentDateTime" class="text-center"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer class="bg-primary text-center text-white py-4 mt-3">
+    <script src="assets/js/operation.js"></script>
+    <p>© Copyright 2024 All rights reserved.</p>
+  </footer>
+</html>

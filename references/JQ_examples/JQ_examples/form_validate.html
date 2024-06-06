@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Validate Form</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+		
+		<link href="assets/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 m-auto">
+					<h1>Form Validation</h1><br />
+					<h5>All fields are mandatory</h5>
+					<form id="basic-form" action="" method="post">
+						<div class="mb-3">
+							<label for="txt_first_name" class="form-label">First Name</label>
+							<input type="text" class="form-control" id="txt_first_name" name="first_name" maxlength="12">
+						</div>
+						
+						<div class="mb-3">
+							<label for="txt_last_name" class="form-label">Last Name</label>
+							<input type="text" class="form-control" id="txt_last_name" name="last_name" maxlength="12">
+						</div>
+						
+						<div class="mb-3">
+							<label for="txt_email" class="form-label">Email address</label>
+							<input type="email" class="form-control" id="txt_email" name="email" aria-describedby="emailHelp" maxlength="50">
+							<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+						</div>
+						
+						<div class="mb-3">
+							<label for="txt_password" class="form-label">Password</label>
+							<input type="password" class="form-control" id="txt_password" name="password" maxlength="12">
+						</div>
+						
+						<div class="mb-3">
+							<label for="txt_password" class="form-label">Confirm Password</label>
+							<input type="password" class="form-control" id="txt_confirm_password" name="confirm_password" maxlength="12">
+						</div>
+						
+						<div class="mb-3">
+							<label for="txt_age" class="form-label">Age</label>
+							<input type="text" class="form-control" id="txt_age" name="age" maxlength="3">
+						</div>
+						
+						<div class="mb-3">
+							<label for="txt_amount" class="form-label">Amount</label>
+							<input type="text" class="form-control" id="txt_amount" name="amount" maxlength="7">
+						</div>
+						
+						<div class="mb-3">
+							<label for="opt_country" class="form-label">Country</label>
+							<select class="form-control" id="opt_country" name="country">
+								<option value="" selected>Please select</option>
+								<option value="India">India</option>
+								<option value="USA">USA</option>
+								<option value="UK">UK</option>
+							</select>
+						</div>
+						
+						<div class="mb-3">
+							<label class="form-label">Gender</label>
+						</div>
+						<div class="mb-3">
+							<input type="radio" class="form-check-input" id="rad_gender_male" name="gender" value="Male">
+							<label class="form-check-label" for="rad_gender_male">Male</label>
+						</div>
+						<div class="mb-3">
+							<input type="radio" class="form-check-input" id="rad_gender_female" name="gender" value="Female">
+							<label class="form-check-label" for="rad_gender_female">Female</label>
+						</div>
+						<div id="gender_err" class="error"></div>
+						
+						<div class="mb-3">
+							<label class="form-label">Certification Completed</label>
+						</div>
+						<div class="mb-3">
+							<input type="checkbox" class="form-check-input" id="chk_aws" name="certification" value="AWS">
+							<label class="form-check-label" for="chk_aws">AWS</label>
+						</div>
+						<div class="mb-3">
+							<input type="checkbox" class="form-check-input" id="chk_azure" name="certification" value="Azure">
+							<label class="form-check-label" for="chk_azure">Azure</label>
+						</div>
+						<div id="certification_err" class="error"></div>
+						
+						<div class="mb-3">
+							<label for="txt_comments" class="form-label">Comments</label>
+							<textarea class="form-control" id="txt_comments" name="comments" rows="5" cols="30"></textarea>
+						</div>
+						
+						<div class="mb-3">
+							<input type="checkbox" class="form-check-input" id="chk_terms" name="terms">
+							<label class="form-check-label" for="terms">Read Terms and Conditions</label>
+						</div>
+						<div id="terms_err" class="error"></div>
+						
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>	
+		</div>
+	
+		<!-- modal dialog box https://getbootstrap.com/docs/5.2/components/modal/ -->
+		<div class="modal fade" id="modal_disp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="staticBackdropLabel">Data Entered</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<table class="table">
+							<tr>
+							  <th scope="col">First Name</th>
+							  <td scope="col" id="disp_first_name"></td>
+							</tr>
+							<tr>
+							  <th scope="col">Last Name</th>
+							  <td scope="col" id="disp_last_name"></td>
+							</tr>
+							<tr>
+							  <th scope="col">Email</th>
+							  <td scope="col" id="disp_email"></td>
+							</tr>
+							<tr>
+							  <th scope="col">Age</th>
+							  <td scope="col" id="disp_age"></td>
+							</tr>
+							<tr>
+							  <th scope="col">Amount</th>
+							  <td scope="col" id="disp_amount"></td>
+							</tr>
+							<tr>
+							  <th scope="col">Country</th>
+							  <td scope="col" id="disp_country"></td>
+							</tr>
+							<tr>
+							  <th scope="col">Gender</th>
+							  <td scope="col" id="disp_gender"></th>
+							</tr>
+							<tr>
+							  <th scope="col">Comments</th>
+							  <td scope="col" id="disp_comments"></td>
+							</tr>
+							<tr>
+							  <th scope="col">Certification Completed</th>
+							  <td scope="col" id="disp_certification"></td>
+							</tr>
+						</table>	
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="btn_close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<!-- <button type="button" class="btn btn-primary">Understood</button> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- modal dialog box ends -->
+		
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+	
+	<script src="assets/js/validate.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</html>

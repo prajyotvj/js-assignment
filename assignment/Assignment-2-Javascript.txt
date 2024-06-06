@@ -1,0 +1,6 @@
+Create the HTML PAGE that has header, footer and main content. The UI should look good. Perform following operations:
+
+1)Display 4 radio buttons: mm-dd-yyyy, mm/dd/yyyy, dd-mm-yyyy, dd/mm/yyyy Based on the selection display the current date in selected format.
+2)Display a drop down containing 3 countries. Display 3 drop downs showing city names from 3 countries. Based on the country selected, display respective city drop down. Display the selected city name when the user chooses the city.
+3)Display 4 check boxes with different color names. The user will select 1 or more check boxes. When the button is clicked, display count of colors selected.
+4)Display a table showing list of 5 states and its capitals. Display 'Delete' button on each row. When the 'delete' button is clicked, ask user's confirmation.  Delete the row from the table if user confirms.

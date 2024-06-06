@@ -1,0 +1,117 @@
+<html>
+	<head>
+		<title>JS: Find Grade</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link href="assets/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 m-auto">
+					<h1>Find Grade</h1><br />5
+					<h6>Example of if, switch, getElementById, getElementsByClassName, parseInt, Properties(value, style, src, innerHTML) Events (onLoad, onKeyup, onBlur, onClick, focus), addClass</h6>
+					<br />
+					<div style="width:70%">
+						<div class="mb-3">
+							<label class="form-label">Enter marks of following subjects (Max Marks: 100)</label>
+						</div>
+						<div class="row g-3">
+							<div class="col-md-4">
+								<label for="html_marks" class="form-label">HTML:</label>
+								<input type="text" class="form-control" id="html_marks" name="html_marks" maxlength="4" onKeyup="this.value = this.value.replace(/[^0-9.]/g, '')" onBlur="verify(this.id)">
+								<span class="error" id="html_marks_err"></span>
+							</div>
+							<div class="col-md-4">
+								<label for="js_marks" class="form-label">JS, JQ:</label>
+								<input type="text" class="form-control" id="js_marks" name="js_marks" maxlength="4" onKeyup="this.value = this.value.replace(/[^0-9.]/g, '')" onBlur="verify(this.id)">
+								<span class="error" id="js_marks_err"></span>
+							</div>
+							<div class="col-md-4">
+								<label for="sql_marks" class="form-label">SQL:</label>
+								<input type="text" class="form-control" id="sql_marks" name="sql_marks" maxlength="4" onKeyup="this.value = this.value.replace(/[^0-9.]/g, '')" onBlur="verify(this.id)">
+								<span class="error" id="sql_marks_err"></span>
+							</div>
+						
+							<div class="col-md-4">
+								<label for="optional" class="form-label">Optional</label>
+								<select class="form-control" id="optional" name="optional" onChange="show_section(this.value)">
+									<option value="php">PHP</option>
+									<option value="net">.Net</option>
+									<option value="mobile">Mobile</option>
+								</select>
+							</div>
+							
+							<div class="col-md-4 php_section">
+								<label for="codeignitor_marks" class="form-label">CodeIgnitor:</label>
+								<input type="text" class="form-control" id="codeignitor_marks" name="codeignitor_marks" maxlength="4" onKeyup="this.value = this.value.replace(/[^0-9.]/g, '')" onBlur="verify(this.id)">
+								<span class="error" id="codeignitor_marks_err"></span>
+							</div>
+							<div class="col-md-4 php_section">
+								<label for="wp_marks" class="form-label">WordPress:</label>
+								<input type="text" class="form-control" id="wp_marks" name="wp_marks" maxlength="4" onKeyup="this.value = this.value.replace(/[^0-9.]/g, '')" onBlur="verify(this.id)">
+								<span class="error" id="wp_marks_err"></span>
+							</div>
+							
+							<div class="col-md-4 net_section">
+								<label for="physics_marks" class="form-label">.Net MVC:</label>
+								<input type="text" class="form-control" id="mvc_marks" name="mvc_marks" maxlength="4" onKeyup="this.value = this.value.replace(/[^0-9.]/g, '')" onBlur="verify(this.id)">
+								<span class="error" id="mvc_marks_err"></span>
+							</div>
+							<div class="col-md-4 net_section">
+								<label for="physics_marks" class="form-label">.Net Core:</label>
+								<input type="text" class="form-control" id="core_marks" name="core_marks" maxlength="4" onKeyup="this.value = this.value.replace(/[^0-9.]/g, '')" onBlur="verify(this.id)">
+								<span class="error" id="core_marks_err"></span>
+							</div>
+							
+							<div class="col-md-4 mobile_section">
+								<label for="ios_marks" class="form-label">iOS:</label>
+								<input type="text" class="form-control" id="ios_marks" name="ios_marks" maxlength="4" onKeyup="this.value = this.value.replace(/[^0-9.]/g, '')" onBlur="verify(this.id)">
+								<span class="error" id="ios_marks_err"></span>
+							</div>
+							<div class="col-md-4 mobile_section">
+								<label for="android_marks" class="form-label">Android:</label>
+								<input type="text" class="form-control" id="android_marks" name="android_marks" maxlength="4" onKeyup="this.value = this.value.replace(/[^0-9.]/g, '')" onBlur="verify(this.id)">
+								<span class="error" id="android_marks_err"></span>
+							</div>
+						</div>
+						<br />
+						<div class="mb-3">
+							<label for="certification" class="form-label">Has completed Python certification?</label>
+							<input type="checkbox" id="certification" name="certification">
+						</div>
+						<div class="mb-3">
+							<input type="button" name="but_show" id="but_show" class="btn btn-primary" value="Show Grade" onClick="showGrade()"> 
+							<div class="error" id="err_marks"></div>
+						</div>
+							
+						<div class="row g-3" id="result">
+							<div class="col-md-4">
+								<label for="total_marks" class="form-label">Total Marks: </label>
+								<span id="total_marks"></span>
+							</div>
+							<div class="col-md-4">
+								<label for="total_marks" class="form-label">Percentage: </label>
+								<span id="percentage"></span>
+							</div>
+							<div class="col-md-4">
+								<label for="grade" class="form-label">Grade: </label>
+								<span id="grade" class="showbold"></span>
+							</div>
+							<div class="col-md-4">
+								<label for="comment" class="form-label">Comments: </label>
+								<span id="comment"></span>
+							</div>
+							<div class="col-md-4">	
+								<img src="" id="face_img"/>
+							</div>	
+						</div>	
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<script src="assets/js/example1.js"></script>
+   </body>
+</html>
